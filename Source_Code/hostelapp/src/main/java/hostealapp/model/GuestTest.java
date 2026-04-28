@@ -6,11 +6,15 @@ public class GuestTest {
         Guest guest = new Guest();
         guest.setName("Atticus");
         guest.setLastName("Finch");
-        guest.setCity("Alfenas");
-        guest.setState("MG");
-        guest.setAddress("Rua Governador Pablo Neruda");
-        guest.setZipCode("37500-000");
         guest.setEmail("finch@gmail.com");
+
+        Address address = new Address();
+        address.setCity("Alfenas");
+        address.setState("MG");
+        address.setAddress("Rua Governador Pablo Neruda");
+        address.setZipCode("37500-000");
+
+        guest.setAddress(address);
 
         GuestTest x = new GuestTest();
         x.exibirDados(guest);
@@ -18,11 +22,15 @@ public class GuestTest {
         guest = new Guest();
         guest.setName("Fermina");
         guest.setLastName("Daza");
-        guest.setCity("Las Vegas");
-        guest.setState("Nevada");
-        guest.setAddress("Main Street");
-        guest.setZipCode("5555-000-000");
         guest.setEmail("daza@gmail.com");
+
+        address = new Address();
+        address.setCity("Las Vegas");
+        address.setState("Nevada");
+        address.setAddress("Main Street");
+        address.setZipCode("5555-000-000");
+
+        guest.setAddress(address);
 
         System.out.println();
         x.exibirDados(guest);
@@ -33,10 +41,18 @@ public class GuestTest {
         System.out.println("---- Guest Information ----");
         System.out.println("Name...." + guest.getName());
         System.out.println("Lastname...." + guest.getLastName());
-        System.out.println("Address...." + guest.getAddress());
-        System.out.println("ZipCode...." + guest.getZipCode());
-        System.out.println("City...." + guest.getCity());
-        System.out.println("State...." + guest.getState());
         System.out.println("E-mail...." + guest.getEmail());
+
+        System.out.println("---- Address Information ----");
+
+        System.out.println("Address...." + guest.getAddress().getAddress());
+
+        String zipCode = guest.getAddress().getZipCode();
+
+        System.out.println("ZipCode...." + zipCode);
+        System.out.println("City...." + guest.getAddress().getCity());
+        System.out.println("State...." + guest.getAddress().getState());
     }
+
+
 }
